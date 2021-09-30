@@ -46,7 +46,7 @@ def get_tasks():
     response.headers['Content-Type'] = 'application/json'
     response.headers['Cache-Control'] = 'no-cache'
     task_table = taskbook_db.get_table('task')
-    tasks = [dict(x) for x in task_table.find(order_by='time')]
+    tasks = [dict(x) for x in task_table.find(order_by='completed')] #Kurt Wireman - (order_by='time') was changed to (order_by='completed')
     return { "tasks": tasks }
 
 @post('/api/tasks')
