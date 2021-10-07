@@ -9,7 +9,7 @@
   .description { padding-left:8px }
 
   span.description:hover{
-    background-color: yellow;
+    background-color: green;
   }
 </style>
 
