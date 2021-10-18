@@ -31,7 +31,7 @@ def login():
     return template("register.tpl") 
 
 # ---------------------------
-# task REST api 
+# task REST API
 # ---------------------------
 
 import json
