@@ -132,3 +132,5 @@ dmypy.json
 .db
 .db-shm
 .db-wal
+taskbook.db-shm
+taskbook.db-wal
