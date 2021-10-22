@@ -1,5 +1,5 @@
 To execute each `PLACEHOLDER.feature.py` file, simply run `py PLACEHOLDER.feature.py browserName`,
-where browserName may be replaced with `chrome`, `safari`, or `firefox`. Make sure you have the relevant browser driver placed in your PATH. If you are using chrome, you do not need to use `browserName`.
+where `PLACEHOLDER` is the test name and `browserName` is the browser you intend to use, which can be replaced with `chrome`, `safari`, or `firefox`. Make sure you have the relevant browser driver placed in your PATH. If you are using chrome, you do not need to use `browserName`.
 
 Examples: 
 
