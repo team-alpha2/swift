@@ -1,5 +1,9 @@
 printf "Starting tests..."
 
+cd ../
+
+py swift.py
+
 cd /steps/
 
 # tests go here

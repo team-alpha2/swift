@@ -3,29 +3,22 @@ from selenium import webdriver;
 import sys;
 from time import sleep
 
-def createBrowser(name="chrome"):
-    
-    #if(name == "chrome"):
-    #    return webdriver.Chrome()
-    #elif(name == "safari"):
-    #    return webdriver.Safari()
-    #elif(name == "firefox"):
-    #    return webdriver.Firefox()
-    #else:
-    #    raise Exception("Not a valid browser")
-
-    return webdriver.Firefox();
+def createBrowser(name):
+    if(name == "chrome"):
+        return webdriver.Chrome()
+    elif(name == "safari"):
+        return webdriver.Safari()
+    elif(name == "firefox"):
+        return webdriver.Firefox()
 
 global browser
 
-#if(sys.argv and len(sys.argv) > 0):
-#    browserName = sys.argv[0]
-#    print(browserName)
-#    browser = createBrowser(browserName)
-#else:
-#    browser = createBrowser("chrome")
-
-browser = createBrowser("firefox")
+if(len(sys.argv) > 1):
+    browserName = sys.argv[1]
+    print(browserName)
+    browser = createBrowser(browserName)
+else:
+    browser = createBrowser("chrome")
 
 browser.get("http://localhost:8080")
 
