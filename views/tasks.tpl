@@ -10,7 +10,21 @@
 
   span.description:hover{
     background-color: yellow;
+
   }
+/* Heres to add Dark Mode*/ 
+  body {
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
 </style>
 
 <div class="w3-row">
@@ -32,6 +46,17 @@
   </div>
 </div>
 <input id="current_input" hidden value=""/> 
+
+/* Adds the Button to the page */
+<button onclick="myFunction()">dark mode</button>
+ /* Calls the function to toggle the button */
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+
 <script>
 
 /* API CALLS */
