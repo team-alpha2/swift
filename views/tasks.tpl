@@ -12,7 +12,7 @@
     background-color: yellow;
 
   }
-/* Heres to add Dark Mode*/ 
+<!--add Dark Mode-->
   body {
   padding: 25px;
   background-color: white;
@@ -47,9 +47,9 @@
 </div>
 <input id="current_input" hidden value=""/> 
 
-/* Adds the Button to the page */
+<!--Adds the Button to the page-->
 <button onclick="myFunction()">dark mode</button>
- /* Calls the function to toggle the button */
+<!--Calls the function to toggle the button-->
 <script>
 function myFunction() {
    var element = document.body;
