@@ -2,36 +2,98 @@
 % include("banner.tpl")
 
 <style>
-  .save_edit, .undo_edit, .move_task, .description, .edit_task, .delete_task {
+
+.save_edit, .undo_edit, .move_task, .description, .edit_task, .delete_task {
     cursor: pointer;
   }
-  .completed {text-decoration: line-through;}
+  .completed {
+    text-decoration-line: line-through;
+  }
   .description { padding-left:8px }
 
   span.description:hover{
-    background-color: yellow;
+    background-color: #FFBA69;
   }
+
+body {
+    background-color: #FFBA69;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%23F962A7' stroke-width='57.5' stroke-opacity='0.08' %3E%3Ccircle fill='%23FFBA69' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23fcb36e' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23f9ad72' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23f5a677' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23f29f7c' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23ef9881' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23ec9285' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%23e88b8a' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23e5848f' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23e27e93' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23df7798' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23db709d' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%23d86aa1' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%23d563a6' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%23d25cab' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%23ce55b0' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%23cb4fb4' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%23C848B9' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover; 
+    font-family: PT Sans;
+    font-size: 25px;
+}
+   span {
+     color: white;
+     font-family: 'Barlow Condensed', sans-serif;
+   }
+  h1 {
+    font-family: 'Dancing Script', cursive;
+    color: white;
+   }
+
+.dark-mode {
+  background-color: #2F537D;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230C2D45'/%3E%3Cstop offset='1' stop-color='%232F537D'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23C6CDFF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23C6CDFF' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 10px 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 5px 30px;
+  cursor: pointer;
+}
+.button1 {
+  background-color:#FFBA69;
+  color: white;
+  }
+
+.button1:hover {
+  background-color:#FD836D;
+  color: white;
+}
+
 </style>
 
 <div class="w3-row">
   <div class="w3-col s6 w3-container w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-white">
-    <div class="w3-row w3-xxlarge w3-bottombar w3-border-black w3-margin-bottom">
+    <div class="w3-row w3-xxlarge w3-bottombar w3-border-white w3-margin-bottom">
       <h1><i>Today</i></h1>
     </div>
     <table id="task-list-today" class="w3-table">
     </table>
-    <div class="w3-row w3-bottombar w3-border-black w3-margin-bottom w3-margin-top"></div>
+    <div class="w3-row w3-bottombar w3-border-white w3-margin-bottom w3-margin-top"></div>
   </div>
   <div class="w3-col s6 w3-container w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-white">
-    <div class="w3-row w3-xxlarge w3-bottombar w3-border-black w3-margin-bottom">
+    <div class="w3-row w3-xxlarge w3-bottombar w3-border-white w3-margin-bottom">
       <h1><i>Tomorrow</i></h1>
     </div>
     <table  id="task-list-tomorrow" class="w3-table">
     </table>
-    <div class="w3-row w3-bottombar w3-border-black w3-margin-bottom w3-margin-top"></div>
+    <div class="w3-row w3-bottombar w3-border-white w3-margin-bottom w3-margin-top"></div>
   </div>
 </div>
 <input id="current_input" hidden value=""/> 
+
+<!--Adds the Button to the page-->
+<button class="button button1", onclick="myFunction()">dark mode</button>
+
+<!--Calls the function to toggle the button-->
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+
 <script>
 
 /* API CALLS */

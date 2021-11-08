@@ -129,6 +129,6 @@ dmypy.json
 .pyre/
 
 # DB
-.db
-.db-shm
-.db-wal
+taskbook.db
+taskbook.db-shm
+taskbook.db-wal
