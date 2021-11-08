@@ -12,32 +12,29 @@
   .description { padding-left:8px }
 
   span.description:hover{
-    background-color: #FFBA69;
+    background-color: #19567B;
   }
 
 body {
-    background-color: #FFBA69;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%23F962A7' stroke-width='57.5' stroke-opacity='0.08' %3E%3Ccircle fill='%23FFBA69' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23fcb36e' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23f9ad72' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23f5a677' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23f29f7c' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23ef9881' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23ec9285' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%23e88b8a' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23e5848f' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23e27e93' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23df7798' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23db709d' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%23d86aa1' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%23d563a6' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%23d25cab' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%23ce55b0' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%23cb4fb4' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%23C848B9' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: cover; 
-    font-family: PT Sans;
-    font-size: 25px;
+  background-color: #77aa77;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(10,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%2377aa77'/%3E%3Cstop offset='1' stop-color='%23486EFF'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1' gradientTransform='rotate(127,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23cf8' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23cf8' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2' gradientTransform='rotate(0,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23cf8' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23cf8' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
    span {
      color: white;
-     font-family: 'Barlow Condensed', sans-serif;
+     font-family: 'Roboto Condensed', sans-serif;
    }
   h1 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Roboto Condensed', sans-serif;
     color: white;
    }
 
 .dark-mode {
-  background-color: #2F537D;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230C2D45'/%3E%3Cstop offset='1' stop-color='%232F537D'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23C6CDFF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23C6CDFF' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: #638D63;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23638D63'/%3E%3Cstop offset='1' stop-color='%2319567B'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%235F5F5F' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%235F5F5F' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2'%3E%3Cstop offset='0' stop-color='%235F5F5F' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%235F5F5F' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
   background-attachment: fixed;
   background-size: cover;
-  color: white;
 }
 
 .button {
@@ -52,12 +49,12 @@ body {
   cursor: pointer;
 }
 .button1 {
-  background-color:#FFBA69;
+  background-color:#19567B;
   color: white;
   }
 
 .button1:hover {
-  background-color:#FD836D;
+  background-color:#638D63;
   color: white;
 }
 
@@ -66,7 +63,7 @@ body {
 <div class="w3-row">
   <div class="w3-col s6 w3-container w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-white">
     <div class="w3-row w3-xxlarge w3-bottombar w3-border-white w3-margin-bottom">
-      <h1><i>Today</i></h1>
+      <h1><i>Scheduled</i></h1>
     </div>
     <table id="task-list-today" class="w3-table">
     </table>
@@ -74,7 +71,7 @@ body {
   </div>
   <div class="w3-col s6 w3-container w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-white">
     <div class="w3-row w3-xxlarge w3-bottombar w3-border-white w3-margin-bottom">
-      <h1><i>Tomorrow</i></h1>
+      <h1><i>To Be Scheduled</i></h1>
     </div>
     <table  id="task-list-tomorrow" class="w3-table">
     </table>
@@ -84,7 +81,7 @@ body {
 <input id="current_input" hidden value=""/> 
 
 <!--Adds the Button to the page-->
-<button class="button button1", onclick="myFunction()">dark mode</button>
+<button class="button button1", onclick="myFunction()">Dark Mode</button>
 
 <!--Calls the function to toggle the button-->
 <script>
