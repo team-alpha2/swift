@@ -2,6 +2,7 @@
 Education SWIFT web app
 
 Project Name: eAsy Scheduler
+
 Company: Big A Enterprises (Team Alpha)
 
 Description: The eAsy Scheduler is an efficient scheduling software that allows for doctors offices, law offices, etc. to have a streamlined way to schedule their appointments. With the eAsy Scheduler, it takes away the complicated structure of most modern day scheduling software by keeping it simple with just the name for the appointment alongside the time of the appointment. 
