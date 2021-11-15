@@ -40,13 +40,18 @@ body {
 .button {
   border: none;
   color: white;
-  padding: 15px 10px 15px 10px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  transition-duration: 0.4s;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 12px;
   margin: 5px 30px;
   cursor: pointer;
+  position: absolute;
+  bottom: 3%;
+  left: 1%;
 }
 .button1 {
   background-color:#19567B;
@@ -61,27 +66,26 @@ body {
 </style>
 
 <div class="w3-row">
-  <div class="w3-col s6 w3-container w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-white">
+  <div class="w3-col s6 w3-container w3-rightbar w3-border-white">
     <div class="w3-row w3-xxlarge w3-bottombar w3-border-white w3-margin-bottom">
       <h1><i>Scheduled</i></h1>
     </div>
     <table id="task-list-today" class="w3-table">
     </table>
-    <div class="w3-row w3-bottombar w3-border-white w3-margin-bottom w3-margin-top"></div>
+    
   </div>
-  <div class="w3-col s6 w3-container w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-white">
+  <div class="w3-col s6 w3-container w3-leftbar  w3-border-white">
     <div class="w3-row w3-xxlarge w3-bottombar w3-border-white w3-margin-bottom">
       <h1><i>To Be Scheduled</i></h1>
     </div>
     <table  id="task-list-tomorrow" class="w3-table">
     </table>
-    <div class="w3-row w3-bottombar w3-border-white w3-margin-bottom w3-margin-top"></div>
   </div>
 </div>
 <input id="current_input" hidden value=""/> 
 
 <!--Adds the Button to the page-->
-<button class="button button1", onclick="myFunction()">Dark Mode</button>
+<button class="button button1", onclick="myFunction()">Change Theme</button>
 
 <!--Calls the function to toggle the button-->
 <script>
@@ -89,6 +93,7 @@ function myFunction() {
    var element = document.body;
    element.classList.toggle("dark-mode");
 }
+
 </script>
 
 <script>
