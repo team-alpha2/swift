@@ -10,7 +10,7 @@ Description: The eAsy Scheduler is an efficient scheduling software that allows 
 
 Original Author: Gregory S. DeLozier, Ph.D.
 
-Modified By: Stefan Hendricks, James Haas, Connor Stacey, Aidan Kuhns, Steve Duber, Benjamin Wootson, Trish Williams, Abdullah Almutlaq, Kurt Wireman, Nathan ______
+Modified By: Stefan Hendricks, James Haas, Connor Stacey, Aidan Kuhns, Steve Duber, Benjamin Wootson, Trish Williams, Abdullah Almutlaq, Kurt Wireman, Nathan Plaster
 
 Version 0.1 Date: Jan 19, 2021
 
