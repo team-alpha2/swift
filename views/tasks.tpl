@@ -50,7 +50,7 @@ body {
   margin: 5px 30px;
   cursor: pointer;
   position: absolute;
-  bottom: 3%;
+  bottom: 60px;
   left: 1%;
 }
 .button1 {
@@ -89,11 +89,10 @@ body {
 
 <!--Calls the function to toggle the button-->
 <script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-
+  function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
 </script>
 
 <script>
