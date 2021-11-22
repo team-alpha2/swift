@@ -66,7 +66,7 @@ body {
 </style>
 
 <div class="w3-row">
-  <div class="w3-col s6 w3-container w3-rightbar w3-border-white">
+  <div class="w3-col s6 w3-container w3-border-white">
     <div class="w3-row w3-xxlarge w3-bottombar w3-border-white w3-margin-bottom">
       <h1><i>Scheduled</i></h1>
     </div>
@@ -74,7 +74,7 @@ body {
     </table>
     
   </div>
-  <div class="w3-col s6 w3-container w3-leftbar  w3-border-white">
+  <div class="w3-col s6 w3-container w3-border-white">
     <div class="w3-row w3-xxlarge w3-bottombar w3-border-white w3-margin-bottom">
       <h1><i>To Be Scheduled</i></h1>
     </div>
