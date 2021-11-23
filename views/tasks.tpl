@@ -2,36 +2,99 @@
 % include("banner.tpl")
 
 <style>
-  .save_edit, .undo_edit, .move_task, .description, .edit_task, .delete_task {
+
+.save_edit, .undo_edit, .move_task, .description, .edit_task, .delete_task {
     cursor: pointer;
   }
-  .completed {text-decoration: line-through;}
+  .completed {
+    text-decoration-line: line-through;
+  }
   .description { padding-left:8px }
 
   span.description:hover{
-    background-color: yellow;
+    background-color: #19567B;
   }
+
+body {
+  background-color: #77aa77;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(10,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%2377aa77'/%3E%3Cstop offset='1' stop-color='%23486EFF'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1' gradientTransform='rotate(127,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23cf8' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23cf8' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2' gradientTransform='rotate(0,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23cf8' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23cf8' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+   span {
+     color: white;
+     font-family: 'Roboto Condensed', sans-serif;
+   }
+  h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+   }
+
+.dark-mode {
+  background-color: #638D63;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23638D63'/%3E%3Cstop offset='1' stop-color='%2319567B'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%235F5F5F' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%235F5F5F' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2'%3E%3Cstop offset='0' stop-color='%235F5F5F' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%235F5F5F' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 5px 30px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 60px;
+  left: 1%;
+}
+.button1 {
+  background-color:#19567B;
+  color: white;
+  }
+
+.button1:hover {
+  background-color:#638D63;
+  color: white;
+}
+
 </style>
 
 <div class="w3-row">
-  <div class="w3-col s6 w3-container w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-white">
-    <div class="w3-row w3-xxlarge w3-bottombar w3-border-black w3-margin-bottom">
-      <h1><i>Today</i></h1>
+  <div class="w3-col s6 w3-container w3-border-white">
+    <div class="w3-row w3-xxlarge w3-bottombar w3-border-white w3-margin-bottom">
+      <h1><i>Scheduled</i></h1>
     </div>
     <table id="task-list-today" class="w3-table">
     </table>
-    <div class="w3-row w3-bottombar w3-border-black w3-margin-bottom w3-margin-top"></div>
+    
   </div>
-  <div class="w3-col s6 w3-container w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-white">
-    <div class="w3-row w3-xxlarge w3-bottombar w3-border-black w3-margin-bottom">
-      <h1><i>Tomorrow</i></h1>
+  <div class="w3-col s6 w3-container w3-border-white">
+    <div class="w3-row w3-xxlarge w3-bottombar w3-border-white w3-margin-bottom">
+      <h1><i>To Be Scheduled</i></h1>
     </div>
     <table  id="task-list-tomorrow" class="w3-table">
     </table>
-    <div class="w3-row w3-bottombar w3-border-black w3-margin-bottom w3-margin-top"></div>
   </div>
 </div>
 <input id="current_input" hidden value=""/> 
+
+<!--Adds the Button to the page-->
+<button class="button button1", onclick="myFunction()">Change Theme</button>
+
+<!--Calls the function to toggle the button-->
+<script>
+  function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
+</script>
+
 <script>
 
 /* API CALLS */
