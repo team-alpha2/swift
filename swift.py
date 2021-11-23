@@ -37,8 +37,12 @@ def login():
 import json
 import dataset
 import time
+import bottle
 
 taskbook_db = dataset.connect('sqlite:///taskbook.db')  
+application = bottle.default_app() #needed for pythonAnywhere
+
+#you also need to change a few lines in the wsgi file for this to work
 
 @get('/api/tasks')
 def get_tasks():
