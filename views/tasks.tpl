@@ -213,12 +213,16 @@ function save_edit(event) {
 function undo_edit(event) {
   id = event.target.id.replace("undo_edit-","")
   console.log("undo",[id])
+  //reset values
   $("#input-" + id).val("");
+  $("#input-time-" + id).val("");
+  $("#appt-color-" + id).val("#ffffff");
+  //turn off the save edit and undo edit buttons
+  $("#save_edit-"+id).prop('hidden', true);
+  $("#undo_edit-"+id).prop('hidden', true);
   if ((id != "today") & (id != "tomorrow")) {
     // hide the editor
     $("#editor-"+id).prop('hidden', true);
-    $("#save_edit-"+id).prop('hidden', true);
-    $("#undo_edit-"+id).prop('hidden', true);
     // show the text display
     $("#move_task-"+id).prop('hidden', false);
     $("#description-"+id).prop('hidden', false);
@@ -267,7 +271,8 @@ function display_task(x) {
   } else {
     t = '<tr id="task-'+x.id+'" class="task">' + 
         '  <td><span id="move_task-'+x.id+'" class="move_task '+x.list+' material-icons">' + arrow + '</span></td>' +
-        '  <td><span id="description-'+x.id+'" class="description' + completed + '" style="color:'+x.appointmentColor+'";>' + x.description + '</span>' + 
+        '  <td><span id="edit_task-'+x.id+'" class="edit_task '+x.list+' material-icons">edit</span>' +
+        '      <span id="description-'+x.id+'" class="description' + completed + '" style="color:'+x.appointmentColor+'";>' + x.description + '</span>' + 
         '      <span id="time-'+x.id+'" class="description '+completed+'" style="padding-left:0px; color:'+x.appointmentColor+'"' + '">'+ (x.appointmentTime ? ' - ' : '') + (x.appointmentTime ? x.appointmentTime : '') + '</span>' + 
         '      <span id="editor-'+x.id+'" hidden>' + 
         '        <input id="input-'+x.id+'" style="height:22px" class="w3-input w3-border" type="text" autofocus/>' +
@@ -280,7 +285,6 @@ function display_task(x) {
         '      </span>' + 
         '  </td>' +
         '  <td>' +
-        '    <span id="edit_task-'+x.id+'" class="edit_task '+x.list+' material-icons">edit</span>' +
         '    <span id="delete_task-'+x.id+'" class="delete_task material-icons">delete</span>' +
         '    <span id="save_edit-'+x.id+'" hidden class="save_edit material-icons">done</span>' + 
         '    <span id="undo_edit-'+x.id+'" hidden class="undo_edit material-icons">cancel</span>' +
