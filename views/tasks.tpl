@@ -213,9 +213,11 @@ function save_edit(event) {
 function undo_edit(event) {
   id = event.target.id.replace("undo_edit-","")
   console.log("undo",[id])
+  //reset values
   $("#input-" + id).val("");
   $("#input-time-" + id).val("");
   $("#appt-color-" + id).val("#ffffff");
+  //turn off the save edit and undo edit buttons
   $("#save_edit-"+id).prop('hidden', true);
   $("#undo_edit-"+id).prop('hidden', true);
   if ((id != "today") & (id != "tomorrow")) {
