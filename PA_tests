@@ -9,11 +9,11 @@ def test_pyaw_address():
    #Test of web address
    browser = webdriver.Chrome()
    browser.get("https://cstacey5.pythonanywhere.com")
-   #Needs assert
    time.sleep(2)
 
 if __name__ == "__main__":
    test_pyaw_address()
+
 
 def test_pyaw_add():
 
@@ -30,6 +30,46 @@ def test_pyaw_add():
 
 if __name__ == "__main__":
    test_pyaw_add()
+
+def test_pyaw_date():
+
+   #test add task with date
+   browser = webdriver.Chrome()
+   browser.get("https://cstacey5.pythonanywhere.com")
+   input_today_element = browser.find_element(By.ID,'input-today')
+   input_today_element.clear
+   input_today_element.send_keys("test task with date")
+   time.sleep(2)
+   input_time_today = browser.find_element(By.ID,'input-time-today')
+   input_time_today.send_keys("1212a")
+   time.sleep(2)
+   button_save = browser.find_element(By.ID,'save_edit-today')
+   button_save.click()
+   time.sleep(2)
+
+   if __name__ == "__main__":
+      test_pyaw_date()
+
    
-#def test_pyaw_delete():   
-   #Test of delete existing task
+def test_locate_task():
+   #test to locate as task
+   browser = webdriver.Chrome()
+   browser.get("https://cstacey5.pythonanywhere.com")
+   assert browser.find_element(By.ID, 'description-1')
+   
+
+def test_pyaw_delete():
+   #test delete task   
+   browser = webdriver.Chrome()
+   browser.get("https://cstacey5.pythonanywhere.com")
+   input_today_element = browser.find_element(By.ID, 'input-today')
+   input_today_element.clear
+   input_today_element.send_keys("task to be deleted")
+   time.sleep(2)
+   button_save = browser.find_element(By.ID,'save_edit-today')
+   button_save.click()
+   time.sleep(2)
+   delete_this = browser.find_element(By.ID,'delete_task-1')
+   delete_this.click()
+   time.sleep(2)
+   
