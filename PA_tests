@@ -47,8 +47,8 @@ def test_pyaw_date():
    button_save.click()
    time.sleep(2)
 
-   if __name__ == "__main__":
-      test_pyaw_date()
+if __name__ == "__main__":
+   test_pyaw_date()
 
    
 def test_locate_task():
@@ -56,6 +56,9 @@ def test_locate_task():
    browser = webdriver.Chrome()
    browser.get("https://cstacey5.pythonanywhere.com")
    assert browser.find_element(By.ID, 'description-1')
+
+if __name__ == "__main__":
+    test_locate_task()
    
 
 def test_pyaw_delete():
@@ -72,4 +75,12 @@ def test_pyaw_delete():
    delete_this = browser.find_element(By.ID,'delete_task-1')
    delete_this.click()
    time.sleep(2)
-   
+   delete_this = browser.find_element(By.ID,'delete_task-2')
+   delete_this.click()
+   time.sleep(2)
+   delete_this = browser.find_element(By.ID,'delete_task-3')
+   delete_this.click()
+   time.sleep(2)
+
+if __name__ == "__main__":
+   test_pyaw_delete()
