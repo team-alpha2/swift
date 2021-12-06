@@ -11,7 +11,10 @@
   }
   .description { padding-left:8px }
 
-  span.description:hover{
+  #divInput{
+    display: inline;
+  }
+  #divInput:hover{
     background-color: #19567B;
   }
 
@@ -159,7 +162,18 @@ function move_task(event) {
 function complete_task(event) {
   if ($("#current_input").val() != "") { return }
   console.log("complete item", event.target.id )
-  id = event.target.id.replace("description-","");
+
+
+  //original click on description to cross off a task
+  if(event.target.id.includes("description-")){
+    id = event.target.id.replace("description-","");
+  }
+  //allow clicks on time to cross off a task
+  else if(event.target.id.includes("time-")){
+    id = event.target.id.replace("time-", "");
+  }
+
+
   completed = event.target.className.search("completed") > 0;
   console.log("updating :",{'id':id, 'completed':completed==false})
   api_update_task({'id':id, 'completed':completed==false}, 
@@ -272,8 +286,10 @@ function display_task(x) {
     t = '<tr id="task-'+x.id+'" class="task">' + 
         '  <td><span id="move_task-'+x.id+'" class="move_task '+x.list+' material-icons">' + arrow + '</span></td>' +
         '  <td><span id="edit_task-'+x.id+'" class="edit_task '+x.list+' material-icons">edit</span>' +
+        '      <div id="divInput">'+
         '      <span id="description-'+x.id+'" class="description' + completed + '" style="color:'+x.appointmentColor+'";>' + x.description + '</span>' + 
         '      <span id="time-'+x.id+'" class="description '+completed+'" style="padding-left:0px; color:'+x.appointmentColor+'"' + '">'+ (x.appointmentTime ? ' - ' : '') + (x.appointmentTime ? x.appointmentTime : '') + '</span>' + 
+        '       </div>'+
         '      <span id="editor-'+x.id+'" hidden>' + 
         '        <input id="input-'+x.id+'" style="height:22px" class="w3-input w3-border" type="text" autofocus/>' +
         '         <label for="input-time-'+x.id+'">Select a time:</label>'+
