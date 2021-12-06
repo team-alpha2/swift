@@ -194,14 +194,14 @@ function save_edit(event) {
   id = event.target.id.replace("save_edit-","");
   console.log("desc to save = ",$("#input-" + id).val())
   if ((id != "today") & (id != "tomorrow")) {
-    api_update_task({'id':id, description:$("#input-" + id).val(), appointmentTime:$("#input-time-" + id).val()},
+    api_update_task({'id':id, description:$("#input-" + id).val(), appointmentTime:$("#input-time-" + id).val(), appointmentColor:$("#appt-color-" +id).val()},
                     function(result) { 
                       console.log(result);
                       get_current_tasks();
                       $("#current_input").val("")
                     } );
   } else {
-    api_create_task({description:$("#input-" + id).val(), list:id, appointmentTime:$("#input-time-" + id).val()},
+    api_create_task({description:$("#input-" + id).val(), list:id, appointmentTime:$("#input-time-" + id).val(), appointmentColor:$("#appt-color-" +id).val()},
                     function(result) { 
                       console.log(result);
                       get_current_tasks();
@@ -252,7 +252,10 @@ function display_task(x) {
         '        <input id="input-'+x.id+'" style="height:22px" class="w3-input w3-border" '+ 
         '          type="text" autofocus placeholder="Add an item..."/>'+
         '         <label for="input-time-'+x.id+'">Select a time:</label>'+
-        '        <input id="input-time-'+x.id+'" style="height:22px; display:inline-block; width:200px;" class="w3-input w3-border" type="time"/>'+
+        '        <input id="input-time-'+x.id+'" style="height:22px; display:inline-block; width:180px;" class="w3-input w3-border" type="time"/>'+
+        '         <label for="appt-color-'+x.id+'">Select a color:</label>'+
+        '        <input id="appt-color-'+x.id+'" type="color" value="#ffffff" '+
+        '          name="appt-color-'+x.id+'" style="height:22px; display:inline-block; width:22px; background-color:white;"/>'+
         '      </span>' + 
         '  </td>' +
         '  <td style="width:72px">' +
@@ -264,13 +267,16 @@ function display_task(x) {
   } else {
     t = '<tr id="task-'+x.id+'" class="task">' + 
         '  <td><span id="move_task-'+x.id+'" class="move_task '+x.list+' material-icons">' + arrow + '</span></td>' +
-        '  <td><span id="description-'+x.id+'" class="description' + completed + '">' + x.description + '</span>' + 
-        '      <span id="time-'+x.id+'" class="description '+completed+'" style="padding-left:0px;"' + '">'+ (x.appointmentTime ? ' - ' : '') + (x.appointmentTime ? x.appointmentTime : '') + '</span>' + 
+        '  <td><span id="description-'+x.id+'" class="description' + completed + '" style="color:'+x.appointmentColor+'";>' + x.description + '</span>' + 
+        '      <span id="time-'+x.id+'" class="description '+completed+'" style="padding-left:0px; color:'+x.appointmentColor+'"' + '">'+ (x.appointmentTime ? ' - ' : '') + (x.appointmentTime ? x.appointmentTime : '') + '</span>' + 
         '      <span id="editor-'+x.id+'" hidden>' + 
         '        <input id="input-'+x.id+'" style="height:22px" class="w3-input w3-border" type="text" autofocus/>' +
         '         <label for="input-time-'+x.id+'">Select a time:</label>'+
-        '        <input id="input-time-'+x.id+'" name="input-time-'+x.id+'" style="height:22px; display:inline-block; width:200px;" class="w3-input w3-border"'+
+        '        <input id="input-time-'+x.id+'" name="input-time-'+x.id+'" style="height:22px; display:inline-block; width:180px;" class="w3-input w3-border"'+
         '        type="time" value="'+ (x.appointmentTime) +'"/>'+
+        '        <label for="appt-color-'+x.id+'">Select a color:</label>'+
+        '        <input id="appt-color-'+x.id+'" type="color" value="'+x.appointmentColor +'" '+
+        '          name="appt-color-'+x.id+'" style="height:22px; display:inline-block; width:22px; background-color:white;"/>'+
         '      </span>' + 
         '  </td>' +
         '  <td>' +

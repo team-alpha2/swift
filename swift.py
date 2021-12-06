@@ -59,7 +59,7 @@ def create_task():
     try:
         data = request.json
         for key in data.keys():
-            assert key in ["description","list","appointmentTime"], f"Illegal key '{key}'"
+            assert key in ["description","list","appointmentTime", "appointmentColor"], f"Illegal key '{key}'"
         assert type(data['description']) is str, "Description is not a string."
         assert len(data['description'].strip()) > 0, "Description is length zero."
         assert data['list'] in ["today","tomorrow"], "List must be 'today' or 'tomorrow'"
@@ -73,6 +73,7 @@ def create_task():
             "description":data['description'].strip(),
             "list":data['list'],
             "appointmentTime":data['appointmentTime'],
+            "appointmentColor":data['appointmentColor'].strip(),
             "completed":False
         })
     except Exception as e:
@@ -87,7 +88,7 @@ def update_task():
     try:
         data = request.json
         for key in data.keys():
-            assert key in ["id","description","completed","list","appointmentTime"], f"Illegal key '{key}'"
+            assert key in ["id","description","completed","list","appointmentTime", "appointmentColor"], f"Illegal key '{key}'"
         assert type(data['id']) is int, f"id '{id}' is not int"
         if "description" in request:
             assert type(data['description']) is str, "Description is not a string."
