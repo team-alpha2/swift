@@ -3,7 +3,7 @@
 
 <style>
 
-.save_edit, .undo_edit, .move_task, .description, .edit_task, .delete_task {
+.save_edit, .undo_edit, .move_task, .description, .edit_task, .delete_task, .time {
     cursor: pointer;
   }
   .completed {
@@ -50,7 +50,7 @@ body {
   margin: 5px 30px;
   cursor: pointer;
   position: absolute;
-  bottom: 3%;
+  bottom: 60px;
   left: 1%;
 }
 .button1 {
@@ -66,7 +66,7 @@ body {
 </style>
 
 <div class="w3-row">
-  <div class="w3-col s6 w3-container w3-rightbar w3-border-white">
+  <div class="w3-col s6 w3-container w3-border-white">
     <div class="w3-row w3-xxlarge w3-bottombar w3-border-white w3-margin-bottom">
       <h1><i>Scheduled</i></h1>
     </div>
@@ -74,7 +74,7 @@ body {
     </table>
     
   </div>
-  <div class="w3-col s6 w3-container w3-leftbar  w3-border-white">
+  <div class="w3-col s6 w3-container w3-border-white">
     <div class="w3-row w3-xxlarge w3-bottombar w3-border-white w3-margin-bottom">
       <h1><i>To Be Scheduled</i></h1>
     </div>
@@ -89,11 +89,10 @@ body {
 
 <!--Calls the function to toggle the button-->
 <script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-
+  function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
 </script>
 
 <script>
@@ -181,6 +180,7 @@ function edit_task(event) {
   $("#description-"+id).prop('hidden', true);
   $("#edit_task-"+id).prop('hidden', true);
   $("#delete_task-"+id).prop('hidden', true);
+  $("#time-"+id).prop('hidden', true);
   // show the editor
   $("#editor-"+id).prop('hidden', false);
   $("#save_edit-"+id).prop('hidden', false);
@@ -194,14 +194,14 @@ function save_edit(event) {
   id = event.target.id.replace("save_edit-","");
   console.log("desc to save = ",$("#input-" + id).val())
   if ((id != "today") & (id != "tomorrow")) {
-    api_update_task({'id':id, description:$("#input-" + id).val()},
+    api_update_task({'id':id, description:$("#input-" + id).val(), appointmentTime:$("#input-time-" + id).val(), appointmentColor:$("#appt-color-" +id).val()},
                     function(result) { 
                       console.log(result);
                       get_current_tasks();
                       $("#current_input").val("")
                     } );
   } else {
-    api_create_task({description:$("#input-" + id).val(), list:id},
+    api_create_task({description:$("#input-" + id).val(), list:id, appointmentTime:$("#input-time-" + id).val(), appointmentColor:$("#appt-color-" +id).val()},
                     function(result) { 
                       console.log(result);
                       get_current_tasks();
@@ -225,6 +225,7 @@ function undo_edit(event) {
     $("#filler-"+id).prop('hidden', false);
     $("#edit_task-"+id).prop('hidden', false);
     $("#delete_task-"+id).prop('hidden', false);
+    $("#time-"+id).prop('hidden', false);
   }
   // set the editing flag
   $("#current_input").val("")
@@ -248,8 +249,13 @@ function display_task(x) {
     t = '<tr id="task-'+x.id+'" class="task">' +
         '  <td style="width:36px"></td>' +  
         '  <td><span id="editor-'+x.id+'">' + 
-        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" '+ 
+        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input w3-border" '+ 
         '          type="text" autofocus placeholder="Add an item..."/>'+
+        '         <label for="input-time-'+x.id+'">Select a time:</label>'+
+        '        <input id="input-time-'+x.id+'" style="height:22px; display:inline-block; width:180px;" class="w3-input w3-border" type="time"/>'+
+        '         <label for="appt-color-'+x.id+'">Select a color:</label>'+
+        '        <input id="appt-color-'+x.id+'" type="color" value="#ffffff" '+
+        '          name="appt-color-'+x.id+'" style="height:22px; display:inline-block; width:22px; background-color:white;"/>'+
         '      </span>' + 
         '  </td>' +
         '  <td style="width:72px">' +
@@ -261,9 +267,16 @@ function display_task(x) {
   } else {
     t = '<tr id="task-'+x.id+'" class="task">' + 
         '  <td><span id="move_task-'+x.id+'" class="move_task '+x.list+' material-icons">' + arrow + '</span></td>' +
-        '  <td><span id="description-'+x.id+'" class="description' + completed + '">' + x.description + '</span>' + 
+        '  <td><span id="description-'+x.id+'" class="description' + completed + '" style="color:'+x.appointmentColor+'";>' + x.description + '</span>' + 
+        '      <span id="time-'+x.id+'" class="description '+completed+'" style="padding-left:0px; color:'+x.appointmentColor+'"' + '">'+ (x.appointmentTime ? ' - ' : '') + (x.appointmentTime ? x.appointmentTime : '') + '</span>' + 
         '      <span id="editor-'+x.id+'" hidden>' + 
-        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" type="text" autofocus/>' +
+        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input w3-border" type="text" autofocus/>' +
+        '         <label for="input-time-'+x.id+'">Select a time:</label>'+
+        '        <input id="input-time-'+x.id+'" name="input-time-'+x.id+'" style="height:22px; display:inline-block; width:180px;" class="w3-input w3-border"'+
+        '        type="time" value="'+ (x.appointmentTime) +'"/>'+
+        '        <label for="appt-color-'+x.id+'">Select a color:</label>'+
+        '        <input id="appt-color-'+x.id+'" type="color" value="'+x.appointmentColor +'" '+
+        '          name="appt-color-'+x.id+'" style="height:22px; display:inline-block; width:22px; background-color:white;"/>'+
         '      </span>' + 
         '  </td>' +
         '  <td>' +
