@@ -50,7 +50,7 @@ def get_tasks():
     response.headers['Content-Type'] = 'application/json'
     response.headers['Cache-Control'] = 'no-cache'
     task_table = taskbook_db.get_table('task')
-    tasks = [dict(x) for x in task_table.find(order_by='completed')] #Kurt Wireman - (order_by='time') was changed to (order_by='completed')
+    tasks = [dict(x) for x in task_table.find(order_by='appointmentTime')] #Kurt Wireman - (order_by='time') was changed to (order_by='completed')
     return { "tasks": tasks }
 
 @post('/api/tasks')
@@ -59,7 +59,7 @@ def create_task():
     try:
         data = request.json
         for key in data.keys():
-            assert key in ["description","list"], f"Illegal key '{key}'"
+            assert key in ["description","list","appointmentTime"], f"Illegal key '{key}'"
         assert type(data['description']) is str, "Description is not a string."
         assert len(data['description'].strip()) > 0, "Description is length zero."
         assert data['list'] in ["today","tomorrow"], "List must be 'today' or 'tomorrow'"
@@ -72,6 +72,7 @@ def create_task():
             "time": time.time(),
             "description":data['description'].strip(),
             "list":data['list'],
+            "appointmentTime":data['appointmentTime'],
             "completed":False
         })
     except Exception as e:
@@ -86,7 +87,7 @@ def update_task():
     try:
         data = request.json
         for key in data.keys():
-            assert key in ["id","description","completed","list"], f"Illegal key '{key}'"
+            assert key in ["id","description","completed","list","appointmentTime"], f"Illegal key '{key}'"
         assert type(data['id']) is int, f"id '{id}' is not int"
         if "description" in request:
             assert type(data['description']) is str, "Description is not a string."
