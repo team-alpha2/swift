@@ -3,7 +3,7 @@
 
 <style>
 
-.save_edit, .undo_edit, .move_task, .description, .edit_task, .delete_task {
+.save_edit, .undo_edit, .move_task, .description, .edit_task, .delete_task, .time {
     cursor: pointer;
   }
   .completed {
@@ -180,6 +180,7 @@ function edit_task(event) {
   $("#description-"+id).prop('hidden', true);
   $("#edit_task-"+id).prop('hidden', true);
   $("#delete_task-"+id).prop('hidden', true);
+  $("#time-"+id).prop('hidden', true);
   // show the editor
   $("#editor-"+id).prop('hidden', false);
   $("#save_edit-"+id).prop('hidden', false);
@@ -193,14 +194,14 @@ function save_edit(event) {
   id = event.target.id.replace("save_edit-","");
   console.log("desc to save = ",$("#input-" + id).val())
   if ((id != "today") & (id != "tomorrow")) {
-    api_update_task({'id':id, description:$("#input-" + id).val()},
+    api_update_task({'id':id, description:$("#input-" + id).val(), appointmentTime:$("#input-time-" + id).val()},
                     function(result) { 
                       console.log(result);
                       get_current_tasks();
                       $("#current_input").val("")
                     } );
   } else {
-    api_create_task({description:$("#input-" + id).val(), list:id},
+    api_create_task({description:$("#input-" + id).val(), list:id, appointmentTime:$("#input-time-" + id).val()},
                     function(result) { 
                       console.log(result);
                       get_current_tasks();
@@ -224,6 +225,7 @@ function undo_edit(event) {
     $("#filler-"+id).prop('hidden', false);
     $("#edit_task-"+id).prop('hidden', false);
     $("#delete_task-"+id).prop('hidden', false);
+    $("#time-"+id).prop('hidden', false);
   }
   // set the editing flag
   $("#current_input").val("")
@@ -247,8 +249,10 @@ function display_task(x) {
     t = '<tr id="task-'+x.id+'" class="task">' +
         '  <td style="width:36px"></td>' +  
         '  <td><span id="editor-'+x.id+'">' + 
-        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" '+ 
+        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input w3-border" '+ 
         '          type="text" autofocus placeholder="Add an item..."/>'+
+        '         <label for="input-time-'+x.id+'">Select a time:</label>'+
+        '        <input id="input-time-'+x.id+'" style="height:22px; display:inline-block; width:200px;" class="w3-input w3-border" min="07:00" max="20:00" type="time"/>'+
         '      </span>' + 
         '  </td>' +
         '  <td style="width:72px">' +
@@ -261,8 +265,12 @@ function display_task(x) {
     t = '<tr id="task-'+x.id+'" class="task">' + 
         '  <td><span id="move_task-'+x.id+'" class="move_task '+x.list+' material-icons">' + arrow + '</span></td>' +
         '  <td><span id="description-'+x.id+'" class="description' + completed + '">' + x.description + '</span>' + 
+        '      <span id="time-'+x.id+'" class="description '+completed+'" style="padding-left:0px;"' + '">'+ (x.appointmentTime ? ' - ' : '') + (x.appointmentTime ? x.appointmentTime : '') + '</span>' + 
         '      <span id="editor-'+x.id+'" hidden>' + 
-        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" type="text" autofocus/>' +
+        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input w3-border" type="text" autofocus/>' +
+        '         <label for="input-time-'+x.id+'">Select a time:</label>'+
+        '        <input id="input-time-'+x.id+'" name="input-time-'+x.id+'" style="height:22px; display:inline-block; width:200px;" class="w3-input w3-border" min="07:00" max="20:00"'+
+        '        type="time" value="'+ (x.appointmentTime) +'"/>'+
         '      </span>' + 
         '  </td>' +
         '  <td>' +
