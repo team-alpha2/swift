@@ -252,7 +252,7 @@ function display_task(x) {
         '        <input id="input-'+x.id+'" style="height:22px" class="w3-input w3-border" '+ 
         '          type="text" autofocus placeholder="Add an item..."/>'+
         '         <label for="input-time-'+x.id+'">Select a time:</label>'+
-        '        <input id="input-time-'+x.id+'" style="height:22px; display:inline-block; width:200px;" class="w3-input w3-border" min="07:00" max="20:00" type="time"/>'+
+        '        <input id="input-time-'+x.id+'" style="height:22px; display:inline-block; width:200px;" class="w3-input w3-border" type="time"/>'+
         '      </span>' + 
         '  </td>' +
         '  <td style="width:72px">' +
@@ -269,7 +269,7 @@ function display_task(x) {
         '      <span id="editor-'+x.id+'" hidden>' + 
         '        <input id="input-'+x.id+'" style="height:22px" class="w3-input w3-border" type="text" autofocus/>' +
         '         <label for="input-time-'+x.id+'">Select a time:</label>'+
-        '        <input id="input-time-'+x.id+'" name="input-time-'+x.id+'" style="height:22px; display:inline-block; width:200px;" class="w3-input w3-border" min="07:00" max="20:00"'+
+        '        <input id="input-time-'+x.id+'" name="input-time-'+x.id+'" style="height:22px; display:inline-block; width:200px;" class="w3-input w3-border"'+
         '        type="time" value="'+ (x.appointmentTime) +'"/>'+
         '      </span>' + 
         '  </td>' +
