@@ -35,10 +35,20 @@ hideCalendar = true;
 
 function handleData() {
     let value = document.getElementById("value").value;
-    
+    let elements = document.getElementsByClassName("task");
+
+
+
     setTimeout(() => {
         api_get_tasks(function(result){
             for (const task of result.tasks) {
+                for(const e of elements) {
+                    if(!e.innerText.includes(':'))
+                        continue;
+
+                    
+                    
+                }
                 let date = new Date(task.time);
 
                 let day = date.getDay();
@@ -50,6 +60,8 @@ function handleData() {
                 let inputDay = inputDate.getDay();
                 let inputMonth = inputDate.getMonth();
                 let inputYear = inputDate.getYear();
+
+                //new Date(document.getElementsByClassName("task")[2].innerText.substr(31).replace("\tdelete", ''))
 
                 console.log("here")
 
