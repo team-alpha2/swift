@@ -1,21 +1,29 @@
 <style type ="text/css" >
 .header{     
-    background-color: #2E86C1;   
-    
+    background-color: black;   
 }  
+
+#custom{
+    background-color: #2196F3!important
+}
+
+#custom:hover{
+    background-color:aqua!important
+}
+
 </style>
 
 <div class="header">
-<div class="w3-container w3-topbar w3-leftbar w3-rightbar w3-bottombar w3-border-white" >
-  <img src="https://drive.google.com/thumbnail?id=1kLutYQtcu_-0RqnszxPJzimIN8R1rDSI" alt="logo" height="100px"  >
-
+<div class="w3-container w3-topbar w3-leftbar w3-rightbar w3-bottombar w3-border-white">
+<!--Find a way to make local images work-->
+  <img src="https://i.ibb.co/Y7YGY1Q/testlogo.png" alt="test logo" style="border:2px solid #fff;transform:translate(0px, -10px);width:60px;height:50px;">
   <span class="w3-xxxlarge w3-margin"><b>eAsy Scheduler</b></span>
   <span class="w3-right">
     <span class="w3-large w3-button w3-margin w3-round-large w3-blue">Sign up</span>
     <span class="w3-large w3-button w3-margin w3-round-large w3-blue">Log In</span>
-    <span id="calendar" class="w3-large w3-button w3-margin w3-round-large w3-blue">View Calendar
+    <span id="calendar" class="w3-large w3-button w3-margin w3-round-large w3-grey">View Calendar
         <input id="value" type="date" style="overflow:hidden">
-        <button class="w3-large w3-button w3-margin w3-round-large w3-blue" onclick="handleData()">Submit Query</button>
+        <button id="custom" class="w3-large w3-button w3-margin w3-round-large w3-blue" onclick="handleData()">Submit Query</button>
     </span>
   </span>
 </div>
