@@ -3,7 +3,7 @@
     position: fixed;     
     text-align: center; 
     padding: 3px;
-    background-color: black;   
+    background-color: #678ED5 ;   
     bottom: 0px; 
     width: 100%;
 }  

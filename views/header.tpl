@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <link rel="icon" type="link" href="https://drive.google.com/thumbnail?id=1Kkx5xY9anbmPfQCIlsgBNQIH7dXXZbbe"/>
   <title>Alpha Corp.</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,8 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico"/>
   
 </head>
 <body>
