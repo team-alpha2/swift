@@ -1,6 +1,6 @@
 <style type ="text/css" >
 .header{     
-    background-color: black;   
+    background-image: linear-gradient(to right, #303030, #909090);   
 }  
 
 #custom{
